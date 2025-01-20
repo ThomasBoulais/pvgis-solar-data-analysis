@@ -37,8 +37,5 @@ def fetch_pvgis_data(lat, lon):
     return 0
 
 
-# coordonnées de Montpellier
-# fetch_pvgis_data(43.62505, 3.862038)
-
-# coordonnées de Brest
 fetch_pvgis_data(48.400002, -4.48333)
+
