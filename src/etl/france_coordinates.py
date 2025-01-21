@@ -45,17 +45,22 @@ def stats(COORDINATES, PRECISION_IN_NEGATIVE_POWER):
     print("With 30 GET per second the total time needed is {0} seconds, or {1} minutes".format(nb_sec, nb_sec/60))
 
 
-def all_coordinates(COORDINATES, PRECISION_IN_NEGATIVE_POWER):
+def all_coordinates(coordinates=COORDINATES, precision_in_negative_power=PRECISION_IN_NEGATIVE_POWER):
     # return a list of all coordinates from extreme points coordinates and precision
-    NW_long, NW_lat, SE_long, SE_lat = coordinates_to_float(COORDINATES)
-    delta_long = int(round(abs(NW_long - SE_long), PRECISION_IN_NEGATIVE_POWER) * 10 ** PRECISION_IN_NEGATIVE_POWER)
-    delta_lat = int(round(abs(SE_lat - NW_lat), PRECISION_IN_NEGATIVE_POWER) * 10 ** PRECISION_IN_NEGATIVE_POWER)
+    NW_long, NW_lat, SE_long, SE_lat = coordinates_to_float(coordinates)
+    delta_long = int(round(abs(NW_long - SE_long), precision_in_negative_power) * 10 ** precision_in_negative_power)
+    delta_lat = int(round(abs(SE_lat - NW_lat), precision_in_negative_power) * 10 ** precision_in_negative_power)
     results = []
     for i in range(delta_long):
         for j in range(delta_lat):
-            results.append([round(SE_long - i * 10**(-1*PRECISION_IN_NEGATIVE_POWER), PRECISION_IN_NEGATIVE_POWER), 
-                            round(NW_lat - j * 10**(-1*PRECISION_IN_NEGATIVE_POWER), PRECISION_IN_NEGATIVE_POWER)])
+            results.append([round(SE_long - i * 10**(-1*precision_in_negative_power), precision_in_negative_power), 
+                            round(NW_lat - j * 10**(-1*precision_in_negative_power), precision_in_negative_power)])
     return results 
 
 # stats(COORDINATES, PRECISION_IN_NEGATIVE_POWER)
-print(len(all_coordinates(COORDINATES, PRECISION_IN_NEGATIVE_POWER)))
+# print(len(all_coordinates()))
+
+# print(all_coordinates())
+# print([[x,y] for [x,y] in all_coordinates() where x < 40.9 and y < -14.6])
+print(len([[x,y] for [x,y] in all_coordinates() if x <= 41.3 and y <= -5.2]))
+print(all_coordinates()[0], all_coordinates()[-1])
