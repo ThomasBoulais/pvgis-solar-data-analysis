@@ -62,5 +62,5 @@ def all_coordinates(coordinates=COORDINATES, precision_in_negative_power=PRECISI
 
 # print(all_coordinates())
 # print([[x,y] for [x,y] in all_coordinates() where x < 40.9 and y < -14.6])
-print(len([[x,y] for [x,y] in all_coordinates() if x <= 41.3 and y <= -5.2]))
-print(all_coordinates()[0], all_coordinates()[-1])
+# print(len([[x,y] for [x,y] in all_coordinates() if x <= 41.3 and y <= -5.2]))
+# print(all_coordinates()[0], all_coordinates()[1], all_coordinates()[-1])
