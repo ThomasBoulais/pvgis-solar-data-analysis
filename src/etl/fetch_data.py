@@ -1,6 +1,5 @@
 import requests
-import time
-import csv
+# import time
 import os
 import france_coordinates as fr_coor
 
